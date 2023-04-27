@@ -4,7 +4,7 @@ _base_ = '../mask_rcnn/mask-rcnn_r50-caffe_fpn_ms-poly-1x_coco.py'
 # We also need to change the num_classes in head to match the dataset's annotation
 model = dict(
     roi_head=dict(
-        bbox_head=dict(num_classes=1), mask_head=dict(num_classes=1)))
+        bbox_head=dict(num_classes=2), mask_head=dict(num_classes=2)))
 
 # Modify dataset related settings
 data_root = 'data/ic_bin/'
@@ -20,7 +20,7 @@ train_dataloader = dict(
         data_root=data_root,
         metainfo=metainfo,
         ann_file='train_pbr/000000/scene_gt_coco.json',
-        data_prefix=dict(img='train/')))
+        data_prefix=dict(img='train_pbr/000000/')))
 val_dataloader = dict(
     dataset=dict(
         data_root=data_root,
