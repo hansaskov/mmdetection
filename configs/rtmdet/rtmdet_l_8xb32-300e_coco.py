@@ -110,18 +110,18 @@ test_pipeline = [
 
 train_dataloader = dict(
     batch_size=32,
-    num_workers=10,
+    num_workers=8,
     batch_sampler=None,
     pin_memory=True,
     dataset=dict(pipeline=train_pipeline))
 val_dataloader = dict(
-    batch_size=5, num_workers=10, dataset=dict(pipeline=test_pipeline))
+    batch_size=5, num_workers=8, dataset=dict(pipeline=test_pipeline))
 test_dataloader = val_dataloader
 
-max_epochs = 300
-stage2_num_epochs = 20
+max_epochs = 30
+stage2_num_epochs = 2
 base_lr = 0.004
-interval = 10
+interval = 1
 
 train_cfg = dict(
     max_epochs=max_epochs,

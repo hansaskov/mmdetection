@@ -1,10 +1,9 @@
 # The new config inherits a base config to highlight the necessary modification
-_base_ = '../mask_rcnn/mask-rcnn_r50_fpn_1x_coco.py'
+_base_ = '../rtmdet/rtmdet_l_8xb32-300e_coco.py'
 
 # We also need to change the num_classes in head to match the dataset's annotation
 model = dict(
-    roi_head=dict(
-        bbox_head=dict(num_classes=2), mask_head=dict(num_classes=2)))
+        bbox_head=dict(num_classes=2))
 
 # Modify dataset related settings
 data_root = 'data/ic_bin/'
@@ -31,4 +30,4 @@ val_evaluator = dict(ann_file=data_root + 'val/000000/scene_gt_coco.json')
 test_evaluator = val_evaluator
 
 # We can use the pre-trained Mask RCNN model to obtain higher performance
-load_from = 'https://download.openmmlab.com/mmdetection/v2.0/mask_rcnn/mask_rcnn_r50_fpn_1x_coco/mask_rcnn_r50_fpn_1x_coco_20200205-d4b0c5d6.pth'
+load_from = 'https://download.openmmlab.com/mmdetection/v3.0/rtmdet/rtmdet_l_8xb32-300e_coco/rtmdet_l_8xb32-300e_coco_20220719_112030-5a0be7c4.pth'
