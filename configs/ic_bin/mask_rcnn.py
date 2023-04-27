@@ -26,7 +26,7 @@ val_dataloader = dict(
         data_root=data_root,
         metainfo=metainfo,
         ann_file='val/000000/scene_gt_coco.json',
-        data_prefix=dict(img='val/000000')))
+        data_prefix=dict(img='val/000000/')))
 test_dataloader = val_dataloader
 
 # Modify metric related settings
