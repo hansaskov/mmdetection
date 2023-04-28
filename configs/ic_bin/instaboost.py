@@ -17,7 +17,7 @@ optim_wrapper = dict(
     paramwise_cfg=dict(norm_decay_mult=0., bypass_duplicate=True))
 
 # Modify dataset related settings
-data_root = 'data/ic_bin/'
+data_root = 'data/ic_bin_1000/'
 metainfo = {
     'classes': ('1','2'),
 }

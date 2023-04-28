@@ -37,4 +37,4 @@ param_scheduler = [
 train_cfg = dict(max_epochs=max_epochs)
 
 # only keep latest 3 checkpoints
-default_hooks = dict(checkpoint=dict(max_keep_ckpts=3))
+default_hooks = dict(checkpoint=dict(max_keep_ckpts=12))
