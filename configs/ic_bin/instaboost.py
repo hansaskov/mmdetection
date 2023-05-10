@@ -17,10 +17,11 @@ optim_wrapper = dict(
     paramwise_cfg=dict(norm_decay_mult=0., bypass_duplicate=True))
 
 # Modify dataset related settings
-data_root = 'data/ic_bin_1000/'
+data_root = 'data/ic_bin_rcc_omb_w/'
 metainfo = {
     'classes': ('1','2'),
 }
+
 train_dataloader = dict(
     batch_size=1,
     dataset=dict(

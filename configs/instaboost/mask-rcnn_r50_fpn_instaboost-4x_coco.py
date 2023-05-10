@@ -21,7 +21,7 @@ train_pipeline = [
 
 train_dataloader = dict(dataset=dict(pipeline=train_pipeline))
 
-max_epochs = 12
+max_epochs = 4
 
 param_scheduler = [
     dict(
