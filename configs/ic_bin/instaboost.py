@@ -17,34 +17,35 @@ optim_wrapper = dict(
     paramwise_cfg=dict(norm_decay_mult=0., bypass_duplicate=True))
 
 # Modify dataset related settings
-data_root = 'data/ic_bin_rcc_omb_w/'
+data_root = 'data/'
+data_name = "ic_bin_omc_w/"
 metainfo = {
     'classes': ('1','2'),
 }
 
 train_dataloader = dict(
-    batch_size=1,
+    batch_size=4,
     dataset=dict(
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='train_pbr/000000/scene_gt_coco.json',
-        data_prefix=dict(img='train_pbr/000000/')))
+        ann_file= data_name + 'train_pbr/000000/scene_gt_coco.json',
+        data_prefix=dict(img=data_name + 'train_pbr/000000/')))
 val_dataloader = dict(
     dataset=dict(
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='val/000000/scene_gt_coco.json',
-        data_prefix=dict(img='val/000000/')))
+        ann_file=  data_name + 'val/000000/scene_gt_coco.json',
+        data_prefix=dict(img= data_name + 'val/000000/')))
 test_dataloader = dict(
     dataset=dict(
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='test/000003/scene_gt_coco.json',
-        data_prefix=dict(img='test/000003/')))
+        ann_file= 'ic_bin_test/scene_gt_coco.json',
+        data_prefix=dict(img= 'ic_bin_test/')))
 
 # Modify metric related settings
-val_evaluator = dict(ann_file=data_root + 'val/000000/scene_gt_coco.json')
-test_evaluator = dict(ann_file=data_root + 'test/000003/scene_gt_coco.json')
+val_evaluator = dict(ann_file=data_root + data_name + 'val/000000/scene_gt_coco.json')
+test_evaluator = dict(ann_file=data_root + 'ic_bin_test/scene_gt_coco.json')
 
 # We can use the pre-trained Mask RCNN model to obtain higher performance
 load_from = 'https://download.openmmlab.com/mmdetection/v2.0/resnet_strikes_back/mask_rcnn_r50_fpn_rsb-pretrain_1x_coco/mask_rcnn_r50_fpn_rsb-pretrain_1x_coco_20220113_174054-06ce8ba0.pth'
