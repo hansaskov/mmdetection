@@ -8,6 +8,6 @@ Step 2. Put your dataset within the data folder. I have named my dataset ic_bin_
 
 Step 3. Train a machine learning model with the following command:
 
-``` python
+``` bash
 python tools/train configs/blenderbin/instaboost.py
 ```
